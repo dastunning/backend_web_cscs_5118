@@ -33,6 +33,12 @@ spring:
       ansi:
         enabled: always
 
+jwt:
+  secret: ${JWT_SECRET:123456_Ab170321}
+  expirationDateInMs: ${JWT_EXPIRATION_DATE:172800000}
+  refreshExpirationDateInMs: ${JWT_REFRESH_EXPIRATION_DATE:31556952000}
+
+
 server:
   port: 8080
 

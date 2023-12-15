@@ -1,7 +1,6 @@
 package com.backend.components;
 
-
-import com.parqour.promocode.service.UserService;
+import com.backend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
