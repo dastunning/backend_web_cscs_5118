@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: web-backend
+  mvc:
+    servlet:
+      path: /web-backend
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/postgres?createDatabaseIfNotExist=true}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      minimumIdle: ${HIKARI_POOL_MINIMUM_IDLE:1}
+      maximumPoolSize: ${HIKARI_POOL_MAXIMUM_POOL_SIZE:5}
+      idleTimeout: ${HIKARI_POOL_IDLE_TIMEOUT:60000}
+      maxLifetime: ${HIKARI_POOL_MAX_LIFETIME:2000000}
+      connectionTimeout: ${HIKARI_CONNECTION_TIMEOUT:60000}
+  jpa:
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+          lob:
+            non_contextual_creation: true
+    output:
+      ansi:
+        enabled: always
+
+server:
+  port: 8080
+
+springdoc:
+  api-docs:
+    enabled: ${SWAGGER_API_DOCS_ENABLED:true}
+    path: /rest-api-docs
+  swagger-ui:
+    path: /swagger-ui
+    enabled: ${SWAGGER_UI_ENABLED:true}
+
+api:
+  url: ${API_URL:http://localhost:8080}
+  username: ${API_USERNAME:mobile}
+  password: ${API_PASSWORD:3okdf293fk23}
